@@ -87,7 +87,7 @@ def register(request):
 			#messages.info(request,'some field is missing')
 			#return redirect('register')
 	
-	return render(request,"register.html" )
+	return render(request,"loginapp/login.html" )
 
 def dashboard(request):
 	context = {'dashboard':User.objects.all()}
