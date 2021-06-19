@@ -20,10 +20,10 @@ def welcome(request):
 	return render(request,'welcome.html')
 
 def login(request):
-	conn = db.connect(host='localhost', dbname='loginapp', user='postgres', password='1234')
+	conn = db.psycopg2.connect(host='localhost', dbname='loginapp', user='postgres', password='1234')
 	print("Database Connected....")
 	cursor=conn.cursor()
-	conn2 = db.connect(host='localhost', dbname='loginapp', user='postgres', password='1234')
+	conn2 = db.psycopg2.connect(host='localhost', dbname='loginapp', user='postgres', password='1234')
 	cursor2=conn2.cursor()
 	sqlcommand = "select email from loginapp_user"
 	sqlcommand2 = "select password from loginapp_user"
