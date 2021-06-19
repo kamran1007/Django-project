@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>logout!</title>
+    
+  </head>
+  <body>
+    <div class="alert alert-warning" role="alert">
+ 
+  <h1 style="text-align: center;"> DASHBOARD </h1>
+
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ 
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="{% url 'welcome'%}">Home</a>
+        <a class="nav-link" href="{% url 'login'%}">Login</a>
+        <a class="nav-link" href="{% url 'register'%}">signin</a>
+          <a class="nav-link" href="{% url 'logout'%}">Logout</a>
+
+      
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container">
+  	<div class="col-md-10 offset-md-1 mt-5">
+  	<div class="jumbotron">
+    <h1 style="text-align: center;" class="display-4">User Data</h1>
+    <p style="text-align: center;" class="lead">This is a Dashboard page for user .</p>
+    <hr class="my-4">
+
+  </div>
+</div>
+</div>
+{% block content %}
+<table class="table table-bordered border-primary">
+	  <thead class="table-dark">
+		<tr style="text-align: center;">
+   
+    <td style="text-align: center;"> Username</td>
+			<td style="text-align: center;"> Email</td>
+			<td style="text-align: center;"> address</td>
+      <td style="text-align: center;">operation </td>
+
+
+		</tr>
+	</thead>
+	<tbody>
+		{% for emp in dashboard %}
+		<tr>
+      
+      <td style="text-align: center;">{{emp.username}}</td>
+			<td style="text-align: center;">{{emp.email}}</td>
+			<td style="text-align: center;">{{emp.address}}</td>
+     <td style="text-align: center;"> 
+      <a href="{% url 'update' emp.id %}">
+        <button type="button" class="btn btn-success" style="text-align: center;">Edit</button></a>
+      
+      <form action="{% url 'user_delete' emp.id %}" method="POST" class="d-inline" >{% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Delete" style="text-align: center;">
+      
+</form>
+      </td>
+		</tr>
+		{% endfor %}
+		
+	</tbody>
+		
+</table>
+{% endblock content %}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
