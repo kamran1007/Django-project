@@ -78,7 +78,7 @@ def register(request):
 			return redirect('register')
 		
 		else:
-			return redirect('login')
+			return redirect('loginapp/login')
 
 			#user.username==user.email or user.password==user.username:
 			#messages.info(request,'user has been created')
@@ -87,7 +87,7 @@ def register(request):
 			#messages.info(request,'some field is missing')
 			#return redirect('register')
 	
-	return render(request,"loginapp/login.html" )
+	return render(request,"register.html" )
 
 def dashboard(request):
 	context = {'dashboard':User.objects.all()}
