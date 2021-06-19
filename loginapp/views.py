@@ -78,7 +78,7 @@ def register(request):
 			return redirect('register')
 		
 		else:
-			return redirect('loginapp/login')
+			return redirect('login')
 
 			#user.username==user.email or user.password==user.username:
 			#messages.info(request,'user has been created')
