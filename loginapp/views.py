@@ -53,7 +53,7 @@ def login(request):
 			i+=1
 		else:
 			messages.info(request,"check Username and password")
-			return redirect('dashboard')
+			return render(request,'loginapp/dashboard.html')
 	return render(request,'loginapp/login.html')
 
 def register(request):
