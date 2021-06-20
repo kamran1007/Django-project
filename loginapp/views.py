@@ -54,7 +54,7 @@ def login(request):
 		else:
 			messages.info(request,"check Username and password")
 			return render(request,'loginapp/dashboard.html')
-	return render(request,'loginapp/login.html')
+	return render(request,'loginapp/dashboard.html')
 
 def register(request):
 
