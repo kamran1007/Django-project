@@ -92,7 +92,7 @@ def register(request):
 def dashboard(request):
 	context = {'dashboard':User.objects.all()}
 
-	return render(request,'loginapp/dashboard.html',context)
+	return render(request,'loginapp/login.html',context)
 
 
 
