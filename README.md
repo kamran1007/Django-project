@@ -1,6 +1,6 @@
 # Django-project
 # Loginsystem
-Jun 2021 - Present
+21-Jun 2021 
 Link:-https://loginaccount.herokuapp.com/
 This is my second personal project in Django project called 
 login-system where user can create an account , 
